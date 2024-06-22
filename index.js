@@ -130,6 +130,8 @@ async function OnProcessQueue() {
 
 
 // ------- DEBUG REGION -------------
+
+app.get('/get-ip', (req, res) => res.status(STATUS_OK).send(`Your IP is : ${req.ip}`));
 app.get('/debug-player-list', (req, res) => {
 
     let outputData = "";
@@ -154,5 +156,5 @@ app.get('/debug-player-data', (req, res) => {
 
 
 
-setInterval(OnProcessQueue, PROCESS_QUEUE_INTERVAL);
+//setInterval(OnProcessQueue, PROCESS_QUEUE_INTERVAL);
 app.listen(server_port, () => { console.log("Server Started !!! ") });
