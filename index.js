@@ -131,7 +131,12 @@ async function OnProcessQueue() {
 
 // ------- DEBUG REGION -------------
 
-app.get('/get-ip', (req, res) => res.status(STATUS_OK).send(`Your IP is : ${req.ip}`));
+app.get('/get-ip', (req, res) => {
+
+    // ex ::ffff:146.196.47.181 , for this remove   => 7 chars
+    const ipv4 = req.ip.slice(7);
+    res.status(STATUS_OK).send(`Your IP is : ${ipv4}`)
+});
 app.get('/debug-player-list', (req, res) => {
 
     let outputData = "";
